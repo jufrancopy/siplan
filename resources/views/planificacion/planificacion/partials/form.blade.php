@@ -1,6 +1,6 @@
 <div class="form-group">
-	{{	Form::label('item', 'Item')	}}
-	{{	Form::text('item', null,['class'=>'form-control', 'id'=> 'item'])	}}
+	{{	Form::label('dpto', 'dpto')	}}
+	{{	Form::text('dpto', null,['class'=>'form-control', 'id'=> 'dpto'])	}}
 </div>
 
 <div class="form-group">
@@ -9,9 +9,10 @@
 </div>
 
 <div class="form-group">
-	{{	Form::label('tipo', 'Tipo')	}}
-	{{	Form::select('tipo', array('informatico' => 'informatico', 'biomedico' => 'biomedico','class'=>'form-control'))	}}
+	{{	Form::label('sexo', 'Sexo')	}}
+	{{	Form::checkbox('sexo', array('femenino' => 'Femenino', 'masculino' => 'masculino'), ['class'=>'form-control'])}}
 </div>
+
 
 <div class="form-group">
 	{{	Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary'])	}}
