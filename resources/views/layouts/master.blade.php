@@ -46,7 +46,7 @@
                      <ul class="dropdown-menu">
                         <li><a href="#">Datos para Informes</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{route('planificacion.index')}}">Evaluacion POI</a></li>
+                        <li><a href="{{route('poi')}}">Evaluacion POI</a></li>
                         <li role="separator" class="divider"></li>
                      </ul>
                   </li>

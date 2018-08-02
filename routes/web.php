@@ -32,7 +32,26 @@ Route::get('pdf', 'General\PdfController@invoice');
 //Panel administrativo del Dpto de Planificacion
 Route::resource('/evaluacion', 'Planificacion\EvaluacionController');
 Route::resource('/planificacion', 'Planificacion\PlanificacionController');
+Route::get('/poi', 'Planificacion\PoiController@ver')->name('poi');
+Route::get('/prog1', 'Planificacion\PoiController@prog1')->name('prog1');
+Route::get('/listado', 'Planificacion\PoiController@listadoProg1')->name('listado');
+Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');
+Route::get('/list_prog2/{id}', 'Planificacion\PoiController@listadoProg2')->name('list_prog2');
 
 //Rutas de Configuraciones globales
 Route::resource('/departamentos', 'General\DepartamentoController');
 Route::resource('/establecimientos', 'General\EstablecimientoController');
+
+
+//Tipos de rutas
+/*Route::get('pruebaA', function () {
+    return 'Imprimiendo desde web.php';
+});
+
+Route::get('/user', 'UserController@index');
+*/
+//Esto solamente muestra la vista desde la ruta escrita en la url
+/*Route::view('/poi', 'planificacion/poi/index');*/
+
+
+

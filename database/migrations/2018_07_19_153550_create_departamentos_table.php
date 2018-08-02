@@ -13,7 +13,7 @@ class CreateDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamentos', function (Blueprint $table) {
+        Schema::connection('planificacion')->create('departamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('nro_dpto');
             $table->string('nombre',128);
