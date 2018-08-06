@@ -1,5 +1,4 @@
-@extends('pdf.pdf')
-@section('content')
+
 
      <header class="clearfix">
       <!-- <div id="logo">
@@ -70,4 +69,3 @@
       Trabajamos para mejorar
     </footer>
     
-@endsection
