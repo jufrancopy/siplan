@@ -75,6 +75,7 @@
                         <li><a href="{{route('departamentos.index')}}">Departamentos</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('establecimientos.index')}}">Establecimientos de Salud</a></li>
+                        <li><a href="{{route('prodview')}}">Selec de Prueba</a></li>
                      </ul>
                   </li>
                   <!-- FIN ----Dtpto de Proyectos lista -->
