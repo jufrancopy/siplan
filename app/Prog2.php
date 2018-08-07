@@ -13,6 +13,6 @@ class Prog2 extends Model
 	public function departamento()
     {
     	//hasMany= prog2s tiene muchos departamentos
-        return $this->hasMany('App\Departamento');
+        return $this->hasMany(Departamento::class);
     }
 }

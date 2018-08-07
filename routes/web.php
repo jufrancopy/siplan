@@ -35,10 +35,12 @@ Route::resource('/planificacion', 'Planificacion\PlanificacionController');
 Route::get('/poi', 'Planificacion\PoiController@ver')->name('poi');
 Route::get('/prog1', 'Planificacion\PoiController@prog1')->name('prog1');
 Route::get('/listado', 'Planificacion\PoiController@listadoProg1')->name('listado');
-Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');
-Route::get('/meses/{id}', 'Planificacion\PoiController@dptos')->name('meses');
-Route::get('/listdptos', 'Planificacion\PoiController@dptos')->name('listdptos');
-/*Route::get('/list_prog2/{id}', 'Planificacion\PoiController@listadoProg2')->name('list_prog2');*/
+
+//Rutas de Programa 2
+Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');// 
+Route::get('/dptos/{id}', 'Planificacion\PoiController@dptos')->name('dptos');//Lista Meses Enero a Junio
+Route::get('/listdptos/{id}', 'Planificacion\PoiController@listadoProg2')->name('listdptos');//LIsta Departamentos y envia con id
+Route::get('/list_prog2/{id}', 'Planificacion\PoiController@listadoProg2')->name('list_prog2');
 
 //Rutas de Configuraciones globales
 Route::resource('/departamentos', 'General\DepartamentoController');

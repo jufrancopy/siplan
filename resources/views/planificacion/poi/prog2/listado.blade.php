@@ -8,7 +8,8 @@
 		        <td align="right">
 		            <h3>Prog.2</h3>
 		            <pre>
-		            	{{$dpto}}
+		            	
+
 		            </pre>
 		        </td>
 		    </tr>
@@ -27,16 +28,18 @@
 			<thead style="background-color: lightgray;">
 				<tr>
 					
-		        	<th>Mes</th>
 		        	<th>Dpto</th>
+		        	<th>Mes</th>
 		        	<th>Rubro</th>
 		        	<th>Monto</th>
 		    	</tr>
 		    </thead>
 		    <tbody>
 		    	<tr>
-		    		<th>Junio</th>
-		    		<th>{{$dpto}}</th>
+		    		<th></th>
+		    		<th>
+		    			junio
+					</th>
 		    		<td align="right">
 			        	<table > 
 					       <tr> @foreach ($prog2s as $prog2)
@@ -44,13 +47,14 @@
 					        </tr>@endforeach
 					    </table>
 					</td>
-				<td align="right">
-		        	<table > 
-				       <tr> @foreach ($prog2s as $prog2)
-				            <td align="right">{{ number_format($prog2->monto)}} </td>
-				        </tr>@endforeach
-				    </table>
-				</td>
+
+					<td align="right">
+			        	<table > 
+					       <tr> @foreach ($prog2s as $prog2)
+					            <td align="right">{{ number_format($prog2->monto)}} </td>
+					        </tr>@endforeach
+					    </table>
+					</td>
 			</tr>
 			</tbody>
 			<thead style="background-color: lightgray;">

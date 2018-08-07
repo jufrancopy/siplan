@@ -4,13 +4,13 @@
 	<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Prog. 2 -  Gestión administrativa para generación de valor público
+				Seleccion un Departamento
 			</div>
 				<div class="panel-body">
 					@foreach ($dptoids as $dptoid)
-				<ul>
-					<li><a href="{{route('listdptos')}}">{{$dptoid->nombre}}</a></br></li>
-				</ul>
+				<div class="list-group">
+					<a href="{{route('list_prog2', $dptoid->id)}}" class="list-group-item list-group-item-info">{{$dptoid->nombre}}</a></br>
+				
 					@endforeach
 				</div>
 		</div>

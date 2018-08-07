@@ -36,27 +36,27 @@ class PoiController extends Controller
 
     public function prog2()
    {
-        $meses=Mes::all();
+        //Lista todos los meses que estan en la base de datos y al seleccionar envia por url el id del mes al metodo mes
+        $meses=Mes::orderBy('id', 'ASC')->get();
         return  view("planificacion.poi.prog2.index", compact('meses'));
    }
 
 
-   public function dptos($id)
+   public function dptos(Request $request, $id)
    {
-        $dpto=Prog2::where('dpto_id','=',$id)->get();
-        dd($dpto);
-
-        return  view("planificacion.poi.prog2.dptos", compact('dptoids'));
+        
+        //La idea es que este Metodo obtenga el id del mes y liste los valores matcheando con tabla prog2s del campo mes_id
+        $dptoids=Departamento::orderBy('id','ASC')->get();
+        return  view("planificacion.poi.prog2.dptos", compact('dptoids', 'mes'));
    }
 
    
-   public function listadoProg2($id)
+   public function listadoProg2($request)
    {  
-
-    //Se puede pluck o value para imprimir un valor del array
-      $dpto=Departamento::where('id','=',$id)->pluck('id', 'nombre');
-      $prog2s=Prog2::where('dpto_id','=',$dpto)->get();
-
+      //Necesito que imprima valores de la tabla prog2s matcheando mes_id con el id que recibio en el metodo dptos
+      
+      $prog2s=Prog2::where('dpto_id','=',$request)->get();
+      
       if(!$prog2s){
          return "Algo salio mal";
       } 
@@ -66,7 +66,7 @@ class PoiController extends Controller
             /* $prog2=Prog2::where('dpto_id','=',$id);
              $progs2=$prog2->get();
              dd($prog2::departamento()->get());*/
-             return  view ("planificacion.poi.prog2.listado", compact('prog2s', 'total','dpto'));
+             return  view ("planificacion.poi.prog2.listado", compact('prog2s', 'total','meses','dptos'));
           
        }
     }
