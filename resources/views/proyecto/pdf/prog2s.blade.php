@@ -2,14 +2,6 @@
 @section('content')
 <div class="container">
 	<div class="col-md-8 col-md-offset-2">
-	<p>
-		
-		<a href="{{url('listadopdf', ['idmespdf' => $nombreMes[0]->id, 'iddptopdf' => $nombreDpto[0]->id])}}" class="btn btn-sm btn-primary pull-right">
-            Descargar productos en PDF
-        </a>
-        
-    </p>
-    </br></br>
 		<table width="100%">
 		    <tr>
 		    	<td valign="top"></td>
@@ -26,8 +18,7 @@
 		    </tr>
 
 		  </table>
-
-		<table width="100%">
+		  <table width="100%">
 			<tr>
 				<td><strong>Prog.2 </strong>- Consultas, inmunizaciones, atención de urgencias, estudios médicos, prevención y promoción de la salud</td>
 		    </tr>

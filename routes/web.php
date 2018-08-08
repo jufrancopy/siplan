@@ -40,8 +40,8 @@ Route::get('/listado', 'Planificacion\PoiController@listadoProg1')->name('listad
 Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');// lista Meses
 Route::get('/dptos/{idmes}', 'Planificacion\PoiController@dptos')->name('dptos'); //Id mes y Id Dpto se envia a metoto listadoProg2
 Route::get('/listado/{idmes}/{iddpto}', 'Planificacion\PoiController@listadoProg2')->name('listado');//LIsta Departamentos y envia con id
-
-
+//Routes para Reportes PDF de Programa2
+Route::get('listadopdf/{idmespdf}/{iddptopdf}', 'Planificacion\PoiController@pdf')->name('listadopdf');
 
 
 //Rutas de Configuraciones globales

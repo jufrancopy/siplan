@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Planificacion;
 use Illuminate\Support\Collection as Collection;
+use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,26 +63,40 @@ class PoiController extends Controller
   public function listadoProg2($idmes, $iddpto)
    {  
 
-      //Necesito que imprima valores de la tabla prog2s matcheando mes_id con el id que recibio en el metodo dptos
-
       $prog2s=Prog2::where('dpto_id','=',$iddpto)->where('mes_id','=',$idmes)->get();
       $nombreDpto=Departamento::where('id','=',$iddpto)->get();
       $nombreMes=Mes::where('id','=',$idmes)->get();
-
-
-      
       if(!$prog2s){
          return "Algo salio mal";
       } 
       else
          {
             $total=$prog2s->sum('monto');
-            /* $prog2=Prog2::where('dpto_id','=',$id);
-             $progs2=$prog2->get();
-             dd($prog2::departamento()->get());*/
-             return  view ("planificacion.poi.prog2.listado", compact('prog2s', 'total','dptos','nombreDpto','nombreMes'));
-          
-       }
+            
+            return  view ("planificacion.poi.prog2.listado", compact('prog2s', 'total','dptos','nombreDpto','nombreMes'));
+          }
+    }
+
+    public function pdf($idmespdf, $iddptopdf)
+    { 
+      /*dd($idmespdf,$iddptopdf);*/       
+      $prog2s=Prog2::where('dpto_id','=',$iddptopdf)->where('mes_id','=',$idmespdf)->get();
+      $nombreDpto=Departamento::where('id','=',$iddptopdf)->get();
+      $nombreMes=Mes::where('id','=',$idmespdf)->get();
+      /*dd($prog2s);*/
+      if(!$prog2s){
+         return "Algo salio mal";
+      } 
+      else
+         {
+            $total=$prog2s->sum('monto');
+            $view =  \View::make('planificacion.pdf.prog2s', compact('prog2s', 'total','dptos','nombreDpto','nombreMes'));
+            $pdf = \App::make('dompdf.wrapper');
+            $pdf->loadHTML($view);
+            
+            return $pdf->stream('prog2s');
+            
+          }
     }
    }
 
