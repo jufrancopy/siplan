@@ -37,10 +37,12 @@ Route::get('/prog1', 'Planificacion\PoiController@prog1')->name('prog1');
 Route::get('/listado', 'Planificacion\PoiController@listadoProg1')->name('listado');
 
 //Rutas de Programa 2
-Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');// 
-Route::get('/dptos/{id}', 'Planificacion\PoiController@dptos')->name('dptos');//Lista Meses Enero a Junio
-Route::get('/listdptos/{id}', 'Planificacion\PoiController@listadoProg2')->name('listdptos');//LIsta Departamentos y envia con id
-Route::get('/list_prog2/{id}', 'Planificacion\PoiController@listadoProg2')->name('list_prog2');
+Route::get('/prog2', 'Planificacion\PoiController@prog2')->name('prog2');// lista Meses
+Route::get('/dptos/{idmes}', 'Planificacion\PoiController@dptos')->name('dptos'); //Id mes y Id Dpto se envia a metoto listadoProg2
+Route::get('/listado/{idmes}/{iddpto}', 'Planificacion\PoiController@listadoProg2')->name('listado');//LIsta Departamentos y envia con id
+
+
+
 
 //Rutas de Configuraciones globales
 Route::resource('/departamentos', 'General\DepartamentoController');
@@ -59,7 +61,7 @@ Route::get('/findPrice','General\TestController@findPrice');
 });
 
 Route::get('/user', 'UserController@index');
-*/
+
 //Esto solamente muestra la vista desde la ruta escrita en la url
 /*Route::view('/poi', 'planificacion/poi/index');*/
 

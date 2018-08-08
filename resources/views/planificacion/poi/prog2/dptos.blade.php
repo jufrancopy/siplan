@@ -7,10 +7,9 @@
 				Seleccion un Departamento
 			</div>
 				<div class="panel-body">
-					@foreach ($dptoids as $dptoid)
+					@foreach ($iddptos as $iddpto)
 				<div class="list-group">
-					<a href="{{route('list_prog2', $dptoid->id)}}" class="list-group-item list-group-item-info">{{$dptoid->nombre}}</a></br>
-				
+					<a href="{{url('listado', ['idmes' => $idmes->id, 'iddpto' => $iddpto->id])}}">{{$iddpto->nombre}}</a>
 					@endforeach
 				</div>
 		</div>

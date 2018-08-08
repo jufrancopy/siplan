@@ -8,8 +8,8 @@
 		        <td align="right">
 		            <h3>Prog.2</h3>
 		            <pre>
-		            	
-
+		            	{{$nombreDpto[0]->nombre}} 
+					
 		            </pre>
 		        </td>
 		    </tr>
@@ -38,7 +38,7 @@
 		    	<tr>
 		    		<th></th>
 		    		<th>
-		    			junio
+		    			{{$nombreMes[0]->mes}} 
 					</th>
 		    		<td align="right">
 			        	<table > 
@@ -60,7 +60,8 @@
 			<thead style="background-color: lightgray;">
 		        <tr>
 		            <th >Total</th>
-		            <td colspan="2" ></td>
+		            <td colspan="1" ></td>
+		            <td >{{$prog2s->count()}}</td>
 		            <td align="right">{{number_format($total)}}</td>
 		        </tr>
 		    </thead>
