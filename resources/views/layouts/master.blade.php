@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
    <head>
-      <!-- JavaScript -->
-      <script src="{{ asset('js/app.js') }}" defer></script>
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
       <!-- Styles -->
       <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/buttons.dataTables.min.css') }}" rel="stylesheet">
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
    </head>
    <body>
       <nav class="navbar navbar-inverse">
@@ -76,6 +76,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('establecimientos.index')}}">Establecimientos de Salud</a></li>
                         <li><a href="{{route('prodview')}}">Selec de Prueba</a></li>
+                        <li><a href="{{route('create')}}">Listado Departamentos</a></li>
                      </ul>
                   </li>
                   <!-- FIN ----Dtpto de Proyectos lista -->
@@ -117,9 +118,20 @@
          <!-- /.container-fluid -->
       </nav>
       <div class="container">
-         
+         <script src="{{ asset('js/jquery.js')}}"></script>
+         <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
+         <script src="{{ asset('js/master.js')}}"></script>
+         <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> -->
+         <script src="{{ asset('js/datatables/buttons.flash.min.js')}}" defer></script>
+         <script src="{{ asset('js/datatables/buttons.html5.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/buttons.print.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/dataTables.buttons.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/jquery.dataTables.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/jzip.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/pdfmake.min.js')}}" defer></script>      
+         <script src="{{ asset('js/datatables/vfs_fonts.js')}}" defer></script>      
             @yield('content')
-         
+            @yield('script')
       </div>
    </body>
 </html>

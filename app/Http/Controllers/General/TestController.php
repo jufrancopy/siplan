@@ -37,5 +37,9 @@ class TestController extends Controller
 
         return response()->json($p);
     }
+    
+    public function datatables(){
 
+        return view('general.datatables');
+    }
 }

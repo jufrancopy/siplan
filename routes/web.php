@@ -53,6 +53,10 @@ Route::get('/prodview','General\TestController@prodfunct')->name('prodview');
 Route::get('/findProductName','General\TestController@findProductName');
 Route::get('/findPrice','General\TestController@findPrice');
 
+//Rutas para prueba de JqueryDatables
+Route::get('/create','General\DisplayDataController@create')->name('create');
+Route::get('/index','General\DisplayDataController@index');
+Route::get('/buttons','General\DisplayDataController@buttons')->name('buttons');
 
 
 //Tipos de rutas

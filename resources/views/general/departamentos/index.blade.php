@@ -74,7 +74,11 @@
            }
          }, false);
        })();
+
+       
 </script>
+
+
 @endsection
 
 
