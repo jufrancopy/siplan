@@ -154,6 +154,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         yajra\Datatables\DatatablesServiceProvider::class,
+        Codedge\Fpdf\FpdfServiceProvider::class,
     
         /*
          * Application Service Providers...
@@ -218,7 +219,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Datatables' => yajra\Datatables\Datatables::class,
-        
+        'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class,
         
 
     ],

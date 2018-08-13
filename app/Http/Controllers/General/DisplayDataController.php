@@ -27,11 +27,8 @@ class DisplayDataController extends Controller
      */
     public function create()
     {
-        return view('general.displaydata');
+        return view('general.departamentos.index');
     }
 
-    public function buttons()
-    {
-        return view('general.buttons');
-    }
+   
 }

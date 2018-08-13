@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\General\DepartamentoStoreRequest;
 use App\Http\Requests\General\DepartamentoUpdateRequest;
 
+use Datatables;
 use App\Departamento;
 
 class DepartamentoController extends Controller
@@ -23,9 +24,21 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
+
         $departamentos=Departamento::orderBy('id', 'DESC')->paginate(50);       
         
         return view ('general.departamentos.index', compact('departamentos'));
+    }
+
+     public function listadoDptoindex()
+    {
+        return Datatables::of(Departamento::query())->make(true);
+
+    }
+
+    public function listadoDptocreate()
+    {
+        return view('general.departamentos.index');
     }
 
     /**

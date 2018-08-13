@@ -4,10 +4,9 @@ namespace App\Http\Controllers\General;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\ProductCat;
 use App\Product;
-
+use Codedge\Fpdf\Fpdf\Fpdf;  
 
 class TestController extends Controller
 {
@@ -38,8 +37,14 @@ class TestController extends Controller
         return response()->json($p);
     }
     
-    public function datatables(){
+    public function fpdf(){
+        Fpdf::AddPage();
+        Fpdf::SetFont('Courier', 'B', 18);
+        Fpdf::Cell(50, 25, 'Hello World!');
+        $headers=['Content-Type'=>'aplication/pdf'];
+        
+        return Response::make(Fpdf::Output(), 200, $headers);
 
-        return view('general.datatables');
+        
     }
 }

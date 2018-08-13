@@ -46,18 +46,28 @@ Route::get('listadopdf/{idmespdf}/{iddptopdf}', 'Planificacion\PoiController@pdf
 
 //Rutas de Configuraciones globales
 Route::resource('/departamentos', 'General\DepartamentoController');
+Route::get('/listadoDptocreate','General\DepartamentoController@listadoDptocreate')->name('listadoDptocreate');
+Route::get('/index','General\DepartamentoController@listadoDptoindex');
 Route::resource('/establecimientos', 'General\EstablecimientoController');
+
 
 //Pruebas 
 Route::get('/prodview','General\TestController@prodfunct')->name('prodview');
 Route::get('/findProductName','General\TestController@findProductName');
 Route::get('/findPrice','General\TestController@findPrice');
+Route::get('/fpdf','General\TestController@fpdf')->name('fpdf');
 
-//Rutas para prueba de JqueryDatables
-Route::get('/create','General\DisplayDataController@create')->name('create');
-Route::get('/index','General\DisplayDataController@index');
-Route::get('/buttons','General\DisplayDataController@buttons')->name('buttons');
 
+//FPDF
+Route::get('/fpdfurl', function () {
+
+    Fpdf::AddPage();
+    Fpdf::SetFont('Courier', 'B', 18);
+    Fpdf::Cell(50, 25, 'Hello World!');
+    $headers=['Content-Type'=>'aplication/pdf'];
+    return Response::make(Fpdf::Output(), 200, $headers);
+
+});
 
 //Tipos de rutas
 /*Route::get('pruebaA', function () {
