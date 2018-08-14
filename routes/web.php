@@ -60,7 +60,7 @@ Route::get('/fpdf','General\TestController@fpdf')->name('fpdf');
 
 //FPDF
 Route::get('/fpdfurl', function () {
-
+	
     Fpdf::AddPage();
     Fpdf::SetFont('Courier', 'B', 18);
     Fpdf::Cell(50, 25, 'Hello World!');

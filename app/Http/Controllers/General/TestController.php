@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ProductCat;
 use App\Product;
+use App\Departamento;
+use Illuminate\Http\Response;   
+
 use Codedge\Fpdf\Fpdf\Fpdf;  
 
 class TestController extends Controller
@@ -38,12 +41,22 @@ class TestController extends Controller
     }
     
     public function fpdf(){
-        Fpdf::AddPage();
-        Fpdf::SetFont('Courier', 'B', 18);
-        Fpdf::Cell(50, 25, 'Hello World!');
+        $product=Product::all();
+        $fpdf= new Fpdf(); 
+        $fpdf->AddPage();
+        $fpdf->SetFont('Arial', 'B', 11); 
+
+        $i=0; 
+        foreach ($product as $key => $value) 
+        {
+            $fpdf->Cell(40, 10*$i, $value->productname);
+            $fpdf->Cell(40, 10*$i, $value->qty, 0, 1, 'C');
+            $i++; 
+        }
+
+        /*dd($fpdf);*/
         $headers=['Content-Type'=>'aplication/pdf'];
-        
-        return Response::make(Fpdf::Output(), 200, $headers);
+        return new Response($fpdf->Output(), 200, $headers);
 
         
     }
