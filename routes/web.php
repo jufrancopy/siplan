@@ -22,12 +22,13 @@ Route::get('/publico', 'Web\PaginaController@publico')->name('publico');
 Route::resource('/servs_adms', 'Proyecto\ServicioAdministrativoController');
 Route::resource('/eqs_tecns', 'Proyecto\EquipoTecnologicoController');
 Route::resource('/infraestructuras', 'Proyecto\InfraestructuraController');
+Route::resource('/med_inms', 'Proyecto\MedicamentoInsumoController');
+Route::resource('/tls_hs', 'Proyecto\TalentoHumanoController');
 
 //Routes para Reportes PDF
 Route::get('descargar-productos', 'Proyecto\ServicioAdministrativoController@pdf')->name('products.pdf');
 Route::get('infra-pdf', 'Proyecto\InfraestructuraController@pdf')->name('infraestructura.pdf');
-Route::get('pdf', 'General\PdfController@invoice');
-
+Route::get('pdf', 'General\PdfController@ejemplo')->name('pdf');
 
 //Panel administrativo del Dpto de Planificacion
 Route::resource('/evaluacion', 'Planificacion\EvaluacionController');
@@ -58,16 +59,6 @@ Route::get('/findPrice','General\TestController@findPrice');
 Route::get('/fpdf','General\TestController@fpdf')->name('fpdf');
 
 
-//FPDF
-Route::get('/fpdfurl', function () {
-	
-    Fpdf::AddPage();
-    Fpdf::SetFont('Courier', 'B', 18);
-    Fpdf::Cell(50, 25, 'Hello World!');
-    $headers=['Content-Type'=>'aplication/pdf'];
-    return Response::make(Fpdf::Output(), 200, $headers);
-
-});
 
 //Tipos de rutas
 /*Route::get('pruebaA', function () {

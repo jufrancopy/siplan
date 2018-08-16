@@ -4,15 +4,12 @@ namespace App\Http\Controllers\Proyecto;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade as PDF;
 
-use App\Http\Requests\Proyecto\ServicioAdministrativoStoreRequest;
-use App\Http\Requests\Proyecto\ServicioAdministrativoUpdateRequest;
+use App\Http\Requests\Proyecto\TalentoHumanoStoreRequest;
+use App\Http\Requests\Proyecto\TalentoHumanoUpdateRequest;
+use App\TalentoHumano; 
 
-use App\AdministrativoServicio;
-
-
-class ServicioAdministrativoController extends Controller
+class TalentoHumanoController extends Controller
 {
     public function __construct()
     {
@@ -25,9 +22,9 @@ class ServicioAdministrativoController extends Controller
      */
     public function index()
     {
-        $serviciosadministrativos=AdministrativoServicio::orderBy('id', 'DESC')->paginate(50);       
+        $tls_hs=TalentoHumano::orderBy('id', 'DESC')->paginate(50);       
         
-        return view ('proyecto.servs_adms.index', compact('serviciosadministrativos'));
+        return view ('proyecto.tls_hs.index', compact('tls_hs'));
     }
 
 
@@ -36,7 +33,7 @@ class ServicioAdministrativoController extends Controller
         
         //Codigo con Vista previa en navegador de archivo PDF
         
-        $items = AdministrativoServicio::all();
+        $items = TalentoHumano::all();
         $total=$items->sum('costo');
         $view =  \View::make('proyecto.pdf.products', compact('items', 'total'))->render();
         $pdf = \App::make('dompdf.wrapper');
@@ -55,7 +52,7 @@ class ServicioAdministrativoController extends Controller
      */
     public function create()
     {
-        return view ('proyecto.servs_adms.create');
+        return view ('proyecto.tls_hs.create');
     }
 
     /**
@@ -64,11 +61,11 @@ class ServicioAdministrativoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServicioAdministrativoStoreRequest $request)
+    public function store(TalentoHumanoStoreRequest $request)
     {
-        $servicioadministrativo=AdministrativoServicio::create($request->all());
+        $tl_h=TalentoHumano::create($request->all());
 
-        return redirect()->route('servs_adms.index', $servicioadministrativo->id)
+        return redirect()->route('tls_hs.index', $tl_h->id)
                         ->with ('info','Agreda con éxito');
     }
 
@@ -80,8 +77,8 @@ class ServicioAdministrativoController extends Controller
      */
     public function show($id)
     {
-        $servicioadministrativo=AdministrativoServicio::find($id);
-        return view('proyecto.servs_adms.show');
+        $tl_h=TalentoHumano::find($id);
+        return view('proyecto.tls_hs.show');
     }
 
     /**
@@ -92,8 +89,8 @@ class ServicioAdministrativoController extends Controller
      */
     public function edit($id)
     {
-        $servicioadministrativo=AdministrativoServicio::find($id);
-        return view('proyecto.servs_adms.edit', compact('servicioadministrativo'));
+        $tl_h=TalentoHumano::find($id);
+        return view('proyecto.tls_hs.edit', compact('tl_h'));
     }
 
     /**
@@ -103,13 +100,13 @@ class ServicioAdministrativoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ServicioAdministrativoUpdateRequest $request, $id)
+    public function update(TalentoHumanoUpdateRequest $request, $id)
     {
-        $servicioadministrativo=AdministrativoServicio::find($id);
-        $servicioadministrativo->fill($request->all())->save();
+        $tl_h=TalentoHumano::find($id);
+        $tl_h->fill($request->all())->save();
         
-        return redirect()->route('servs_adms.edit', $servicioadministrativo->id)
-                ->with ('info','Actualizada con éxito');
+        return redirect()->route('tls_hs.edit', $tl_h->id)
+                ->with ('info','Actualizado con éxito');
     }
 
     /**
@@ -120,7 +117,7 @@ class ServicioAdministrativoController extends Controller
      */
     public function destroy($id)
     {
-        $servicioadministrativo= AdministrativoServicio::find($id)->delete(); 
-        return back()->with ('info','Eliminada $servicioadministrativo con éxito');
+        $tl_h= TalentoHumano::find($id)->delete(); 
+        return back()->with ('info','Eliminada con éxito');
     }
 }

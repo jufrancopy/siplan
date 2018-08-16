@@ -4,15 +4,13 @@
 	<div class="col-md-8 col-md-offset-2">
 		
         <section class="content-header">
-            <h1>Servicios Administrativos
+            <h1>Infraestructura
                 <small>Beta v1.0</small>
             </h1>
             <ol class="breadcrumb ">
                 <li><a href="{{route('publico')}}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active"><a href="{{route('infraestructuras.index')}}">Infraestructura</a></li>
+                <li class="active">Infraestructura</li>
                 <a href="{{route('infraestructuras.create')}}" class="btn btn-info btn-sm ml-auto pull-right">Crear</a>
-
-                 
             </ol>
         </section>
         <div class="panel panel-default">

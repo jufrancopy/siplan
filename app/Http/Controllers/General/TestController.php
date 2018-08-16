@@ -40,6 +40,7 @@ class TestController extends Controller
         return response()->json($p);
     }
     
+    
     public function fpdf(){
         $product=Product::all();
         $fpdf= new Fpdf(); 
@@ -47,17 +48,27 @@ class TestController extends Controller
         $fpdf->SetFont('Arial', 'B', 11); 
 
         $i=0; 
+
+
+        $fpdf->Cell(40,3*$i, "Nombre");
+        $fpdf->Cell(65,3*$i, "Cantidad");
+        $fpdf->Cell(50,3*$i, "Precio");
+        
+        $i++; 
+
+        $fpdf->Cell(20, 3*$i, '', 0, 1, 'C'); 
+        $fpdf->Cell(20, 3*$i, '', 0, 1, 'C');
+
+        $fpdf->SetFont('Arial', '', 10);
         foreach ($product as $key => $value) 
         {
-            $fpdf->Cell(40, 10*$i, $value->productname);
-            $fpdf->Cell(40, 10*$i, $value->qty, 0, 1, 'C');
+            $fpdf->Cell(40, 3*$i, $value->productname);
+            $fpdf->Cell(65, 3*$i, $value->qty);
+            $fpdf->Cell(50, 3*$i, $value->price, 0, 1, 'C');
+            
             $i++; 
         }
-
-        /*dd($fpdf);*/
         $headers=['Content-Type'=>'aplication/pdf'];
         return new Response($fpdf->Output(), 200, $headers);
-
-        
     }
 }

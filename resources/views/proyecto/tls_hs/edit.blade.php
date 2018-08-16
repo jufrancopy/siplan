@@ -8,7 +8,7 @@
             </h1>
             <ol class="breadcrumb ">
                 <li><a href="{{route('publico')}}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active"><a href="{{route('eqs_tecns.index')}}">Equipos Tecnológicos</a></li>
+                <li class="active"><a href="{{route('tls_hs.index')}}">Equipos Tecnológicos</a></li>
                 <li class="active">Editar</li>
             </ol>
         </section>
@@ -17,9 +17,9 @@
 			Editar Servicios	
 			</div>
 			<div class="panel-body">
-				{!!	Form::model($equipotecnologico, ['route'=>['eqs_tecns.update', $equipotecnologico->id], 'method'=>'PUT'])	!!}
+				{!!	Form::model($tl_h, ['route'=>['tls_hs.update', $tl_h->id], 'method'=>'PUT'])	!!}
 
-					@include('proyecto.eqs_tecns.partials.form')
+					@include('proyecto.tls_hs.partials.form')
 					
 				{!!	Form::close()	!!}
 			</div>

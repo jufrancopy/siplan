@@ -62,9 +62,9 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('eqs_tecns.index')}}">Tecnologia</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Medicamentos e Insumos</a></li>
+                        <li><a href="{{route('med_inms.index')}}">Medicamentos e Insumos</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Talentos Humanos</a></li>
+                        <li><a href="{{route('tls_hs.index')}}">Talentos Humanos</a></li>
                         <li role="separator" class="divider"></li>
                      </ul>
                   </li>
@@ -76,7 +76,7 @@
                         <li><a href="{{route('listadoDptocreate')}}">Departamentos</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('establecimientos.index')}}">Establecimientos de Salud</a></li>
-                        <li><a href="{{route('fpdf')}}">FPDF</a></li>
+                        <li><a href="{{route('pdf')}}">FPDF</a></li>
                         <li><a href="{{route('prodview')}}">Selec de Prueba</a></li>
                         
                      </ul>

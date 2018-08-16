@@ -3,13 +3,13 @@
 <div class="container">
 	<div class="col-md-8 col-md-offset-2">
         <section class="content-header">
-            <h1>Equipos Tecnológicos
+            <h1>Talentos Humanos
                 <small>Beta v1.0</small>
             </h1>
             <ol class="breadcrumb ">
                 <li><a href="{{route('publico')}}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active">Equipos Tecnológicos</li>
-                <a href="{{route('eqs_tecns.create')}}" class="btn btn-info btn-sm ml-auto pull-right">Crear</a>
+                <li class="active">Talentos Humanos</li>
+                <a href="{{route('tls_hs.create')}}" class="btn btn-info btn-sm ml-auto pull-right">Crear</a>
             </ol>
         </section>
     
@@ -25,28 +25,28 @@
     					</tr>
     				</thead>
     				<tbody>
-    					@foreach ($equipostecnologicos as $equipotecnologico)
+    					@foreach ($tls_hs as $tl_h)
     					<tr>
-    						<td>{{ $equipotecnologico->item}}</td>
-    						   @switch($equipotecnologico->tipo)
-                                @case('informatico')
-                                    <td>Informático</td>
+    						<td>{{ $tl_h->item}}</td>
+    						   @switch($tl_h->tipo)
+                                @case('permanente')
+                                    <td>Permanente</td>
                                     @break
-                                @case('biomedico')
-                                    <td>Biomédico</td>
+                                @case('contratado')
+                                    <td>Contratado</td>
                                     @break
                                 @default
                                     <td>Sin tipo</td>
                             @endswitch
-                            <td>{{ number_format($equipotecnologico->costo, 3)}}</td> 
+                            <td>{{ number_format($tl_h->costo, 3)}}</td> 
     						<td width="10px">
-                                <a href="{{route('eqs_tecns.show', $equipotecnologico->id)}}" class="btn btn-sm btn-default">Ver</a>
+                                <a href="{{route('tls_hs.show', $tl_h->id)}}" class="btn btn-sm btn-default">Ver</a>
                             </td>
                             <td width="10px">
-                                <a href="{{route('eqs_tecns.edit',$equipotecnologico->id)}}" class="btn btn-sm btn-default">Editar</a>                  
+                                <a href="{{route('tls_hs.edit',$tl_h->id)}}" class="btn btn-sm btn-default">Editar</a>                  
                             </td>
                             <td width="10px">
-                                {!! Form::open(['route'=>['eqs_tecns.destroy', $equipotecnologico->id],
+                                {!! Form::open(['route'=>['tls_hs.destroy', $tl_h->id],
                                 'method'=>'DELETE']) !!}
                                 <button class="btn btn-sm btn-danger">Eliminar</button>
 

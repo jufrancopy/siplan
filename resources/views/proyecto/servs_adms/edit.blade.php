@@ -10,7 +10,7 @@
         <li><a href="{{route('publico')}}"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active"><a href="{{route('servs_adms.index')}}">Servicios Administrativos</a></li>
         <li class="active">Editar</li>
-        <a href="{{route('servs_adms.create')}}" class="btn btn-info btn-sm ml-auto pull-right">Crear</a>
+        
       </ol>
 
     </section>

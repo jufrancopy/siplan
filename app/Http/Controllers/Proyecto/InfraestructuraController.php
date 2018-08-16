@@ -29,13 +29,11 @@ class InfraestructuraController extends Controller
         return view ('proyecto.infraestructuras.index', compact('infraestructuras'));
     }
 
-    public function pdf()
-    {        
-        
-        //Codigo con Vista previa en navegador de archivo PDF
-        
+    public function pdf(){
+    //Codigo con Vista previa en navegador de archivo PDF
         $items = Infraestructura::all();
         $total=$items->sum('costo');
+        
         $view =  \View::make('proyecto.pdf.infraestructura', compact('items', 'total'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
@@ -61,7 +59,7 @@ class InfraestructuraController extends Controller
     {
         $infraestructura=Infraestructura::create($request->all());
 
-        return redirect()->route('infraestructuras.edit', $infraestructura->id)
+        return redirect()->route('infraestructuras.index', $infraestructura->id)
                         ->with ('info','Agreda con éxito');
     }
 
@@ -101,7 +99,7 @@ class InfraestructuraController extends Controller
         $infraestructura=Infraestructura::find($id);
         $infraestructura->fill($request->all())->save();
         
-        return redirect()->route('infraestructuras.edit', $infraestructura->id)
+        return redirect()->route('infraestructuras.index', $infraestructura->id)
                 ->with ('info','Actualizada con éxito');
     }
 
