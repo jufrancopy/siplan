@@ -13,6 +13,15 @@ class Prog2 extends Model
 	public function departamento()
     {
     	//hasMany= prog2s tiene muchos departamentos
-        return $this->hasMany(Departamento::class);
+       return $this->hasOne(Departamento::class, 'id', 'dpto_id');
+       /*return $this->belongsTo(Departamento::class, 'id');*/
+
+
+    }
+
+    public function mes()
+    {
+    	//hasMany= prog2s tiene muchos departamentos
+        return $this->belongsTo(Mes::class);
     }
 }

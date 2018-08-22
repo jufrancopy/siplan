@@ -79,24 +79,56 @@ class PoiController extends Controller
 
     public function pdf($idmespdf, $iddptopdf)
     { 
-      /*dd($idmespdf,$iddptopdf);*/       
+      
+      $nombreDpto=Departamento::where('id','=',$idmespdf)->get();
+      $nombreMes=Mes::where('id','=',$idmespdf)->get();      
       $prog2s=Prog2::where('dpto_id','=',$iddptopdf)->where('mes_id','=',$idmespdf)->get();
-      $nombreDpto=Departamento::where('id','=',$iddptopdf)->get();
-      $nombreMes=Mes::where('id','=',$idmespdf)->get();
-      /*dd($prog2s);*/
-      if(!$prog2s){
-         return "Algo salio mal";
-      } 
-      else
-         {
-            $total=$prog2s->sum('monto');
-            $view =  \View::make('planificacion.pdf.prog2s', compact('prog2s', 'total','dptos','nombreDpto','nombreMes'));
-            $pdf = \App::make('dompdf.wrapper');
-            $pdf->loadHTML($view);
-            
-            return $pdf->stream('prog2s');
-            
+      $datos = [];
+      foreach ($prog2s as $value) {
+            $datos[] = [
+              'dpto'  => $value->departamento->nombre,
+              'mes'  =>  $value->mes->mes,
+              'rubro' =>  $value->rubro,
+              'monto' =>  $value->monto,
+              'row'=>$value->count('rubro')
+          ];
+        }
+
+        $rowDpto = 0;
+        $rowMes = 0;
+        $table = "<table border=1>";
+
+        foreach($datos as $dato) {
+          $rowDpto ++;
+          $rowMes ++;
+
+          $table .= "<tr>";
+          
+          $table .= ($rowDpto == 1) ? "<td rowspan='%s'> Mes </td>": "";
+          $table .= ($rowMes == 1) ? "<td rowspan='%s'>".{{ $dato['dpto'] }}. "</td>": "";
+          $table .= "<td>rubro</td>";
+          $table .= "<td>monto</td>";
+          $table .= "</tr>";
+        }
+
+        $table .= "</table>";
+
+        printf($table, $rowDpto, $rowMes);
+        exit;
+
+        
+
+
+        /*print_r($row);
+        exit;*/
+        
+        $total=$prog2s->sum('monto');
+
+
+        $view =  \View::make('planificacion.pdf.prog2s', compact('datos','total','prog2s','nombreDpto','nombreMes' ));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('prog2s');
           }
-    }
-   }
+        }
 

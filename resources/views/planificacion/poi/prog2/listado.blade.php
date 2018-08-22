@@ -39,7 +39,7 @@
 			<!-- <td><strong>Responsable:</strong>Julio Franco</td> -->
 		</tr>
 		<table border="1" width="100%">
-			<thead style="background-color: lightgray;">
+			<thead>
 				<tr>
 					
 		        	<th>Dpto</th>
