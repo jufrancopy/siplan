@@ -62,12 +62,7 @@
     				</tbody>
     			@endforeach
     			</table>
-                <hr>
-                <p>
-                    <a href="{{ route('infraestructura.pdf') }}" class="btn btn-sm btn-primary">
-                        Descargar productos en PDF
-                    </a>
-                </p>
+                
 			</div>
 		</div>
 	</div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prog2 extends Model
 {
- 	protected  $connection= 'planificacion';
+ 	protected  $connection= 'diplan_planificacion';
  	protected  $table= 'prog2s';
    	protected $fillable =['dpto_id','mes','rubro', 'monto'];
 

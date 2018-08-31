@@ -8,9 +8,9 @@
 			Cargar Servicios	
 			</div>
 			<div class="panel-body">
-				{!!	Form::open(['route'=>'eqs_tecns.store'])	!!}
+				{!!	Form::open(['route'=>'establecimientos.store'])	!!}
 
-					@include('proyecto.eqs_tecns.partials.form')
+					@include('general.establecimientos.partials.form')
 
 				{!!	Form::close()	!!}
 			</div>

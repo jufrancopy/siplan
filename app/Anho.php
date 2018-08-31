@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anho extends Model
 {
-    protected  $connection= 'planificacion';
+     protected  $connection= 'diplan_globales';
+    
 }

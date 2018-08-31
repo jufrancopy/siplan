@@ -54,7 +54,11 @@ return [
             'engine' => null,
         ],
 
-        'planificacion' => [
+        
+
+       
+
+        'diplan_planificacion' => [
             'driver' => 'mysql',
             'host' => env('PLANIFICACION_HOST', '127.0.0.1'),
             'port' => env('PLANIFICACION_PORT', '3306'),
@@ -68,6 +72,22 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+
+        'diplan_globales' => [
+            'driver' => 'mysql',
+            'host' => env('GLOBALES_HOST', '127.0.0.1'),
+            'port' => env('GLOBALES_PORT', '3306'),
+            'database' => env('GLOBALES_DATABASE', 'forge'),
+            'username' => env('GLOBALES_USERNAME', 'forge'),
+            'password' => env('GLOBALES_PASSWORD', ''),
+            'unix_socket' => env('GLOBALES_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
 
         'pgsql' => [
             'driver' => 'pgsql',

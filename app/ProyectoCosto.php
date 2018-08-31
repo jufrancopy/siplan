@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProyectoCosto extends Model
 {
+    
     public function users()
     {
     	return $this->belongsToMany('App\User');

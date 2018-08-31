@@ -2,13 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
    <head>
       <!-- Fonts -->
-      <link rel="dns-prefetch" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
       <!-- Styles -->
+      
       <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+      
+      <!-- CSS Fontawesome -->
+      <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+
+      <!-- CSS Select2 -->
+      <link href="{{ asset('css/select2.css') }}" rel="stylesheet">
+
+      <!-- CSS Icomoon-->
+      <link href="{{ asset('icomoon/style.css') }}" rel="stylesheet"> <!-- CSS Datatables -->
       <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
       <link href="{{ asset('css/buttons.dataTables.min.css') }}" rel="stylesheet">
+
+      <!-- CSS Booststrap   -->
       <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
       
    </head>
@@ -66,6 +77,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('tls_hs.index')}}">Talentos Humanos</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="{{route('proyectos.index')}}"  class="btn-info">Crear Proyectos</a></li>
                      </ul>
                   </li>
                   <!-- FIN ----Dtpto de Proyectos lista -->
@@ -122,7 +134,8 @@
       <div class="container">
          <script src="{{ asset('js/jquery.js')}}"></script>
          <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
-         <script src="{{ asset('js/master.js')}}"></script>         
+         <script src="{{ asset('js/master.js')}}"></script>
+         <script src="{{ asset('js/select2.js') }}"></script>         
          <script src="{{ asset('js/datatables/jquery.dataTables.min.js')}}" defer></script>      
          <script src="{{ asset('js/datatables/dataTables.buttons.min.js')}}" defer></script>      
          <script src="{{ asset('js/datatables/buttons.flash.min.js')}}" defer></script>
@@ -131,6 +144,12 @@
          <script src="{{ asset('js/datatables/vfs_fonts.js')}}" defer></script>      
          <script src="{{ asset('js/datatables/buttons.html5.min.js')}}" defer></script>
          <script src="{{ asset('js/datatables/buttons.print.min.js')}}" defer></script>
+         <script>
+            $(document).ready(function() {
+            $('.js-example-responsive').select2();
+            });
+         </script>
+
             @yield('content')
             
       </div>

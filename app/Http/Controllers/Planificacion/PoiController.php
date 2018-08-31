@@ -89,46 +89,45 @@ class PoiController extends Controller
               'dpto'  => $value->departamento->nombre,
               'mes'  =>  $value->mes->mes,
               'rubro' =>  $value->rubro,
-              'monto' =>  $value->monto,
-              'row'=>$value->count('rubro')
+              'monto' =>  $value->monto
+              
           ];
         }
-
-        $rowDpto = 0;
-        $rowMes = 0;
-        $table = "<table border=1>";
-
+        $table="<table border=1>";
+        $table .= "<tr>";
+        $table .= "<th>Departamento</th>";
+        $table .= "<th>Mes</th>";
+        $table .= "<th>Rubro</th>";
+        $table .= "<th>Monto</th>";
+        $table .= "<th>Total</th>";
+        $table .= "</tr>";
+        $rowDpto=0;
+        $rowMes=0;
+        $total=0;
+        
         foreach($datos as $dato) {
           $rowDpto ++;
           $rowMes ++;
-
+          $total ++;
           $table .= "<tr>";
-          
-          $table .= ($rowDpto == 1) ? "<td rowspan='%s'> Mes </td>": "";
-          $table .= ($rowMes == 1) ? "<td rowspan='%s'>".{{ $dato['dpto'] }}. "</td>": "";
-          $table .= "<td>rubro</td>";
-          $table .= "<td>monto</td>";
+          $table .= ($rowDpto == 1) ? "<td rowspan='%s'><b>" .$dato['mes']."</b></td>": "";
+          $table .= ($rowMes == 1) ? "<td rowspan='%s'><b>".$dato['dpto']. "</b></td>": "";
+          $table .= "<td>".$dato['rubro']."</td>";
+          $table .= "<td>".$dato['monto']."</td>";
+          $table .= ($total == 1) ? "<td rowspan='%s'><b>".$totals=$prog2s->sum('monto'). "</b></td>": "";
           $table .= "</tr>";
         }
+          
+          $table .= "</table>";
+          
+          $total=$prog2s->sum('monto');
+          $view =  \View::make('planificacion.pdf.prog2s', compact('datos','total','prog2s','nombreDpto','nombreMes','table','rowDpto', 'rowMes', 'datos', 'totals'));
 
-        $table .= "</table>";
-
-        printf($table, $rowDpto, $rowMes);
-        exit;
-
-        
-
-
-        /*print_r($row);
-        exit;*/
-        
-        $total=$prog2s->sum('monto');
-
-
-        $view =  \View::make('planificacion.pdf.prog2s', compact('datos','total','prog2s','nombreDpto','nombreMes' ));
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($view);
-        return $pdf->stream('prog2s');
+          $pdf = \App::make('dompdf.wrapper');
+         
+          
+          $pdf->loadHTML($view)->setPaper('A4', 'vertical');
+          return $pdf->stream('prog2s');
           }
         }
 

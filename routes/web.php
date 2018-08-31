@@ -11,7 +11,7 @@
 |
 */
 
-Route::redirect('/', 'publico'); 
+Route::redirect('/', 'login'); 
 
 Auth::routes();
 
@@ -24,6 +24,7 @@ Route::resource('/eqs_tecns', 'Proyecto\EquipoTecnologicoController');
 Route::resource('/infraestructuras', 'Proyecto\InfraestructuraController');
 Route::resource('/med_inms', 'Proyecto\MedicamentoInsumoController');
 Route::resource('/tls_hs', 'Proyecto\TalentoHumanoController');
+Route::resource('/proyectos', 'Proyecto\ProyectoController');
 
 //Routes para Reportes PDF
 Route::get('descargar-productos', 'Proyecto\ServicioAdministrativoController@pdf')->name('products.pdf');
