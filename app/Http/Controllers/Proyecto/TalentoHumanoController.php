@@ -22,7 +22,7 @@ class TalentoHumanoController extends Controller
      */
     public function index()
     {
-        $tls_hs=TalentoHumano::orderBy('id', 'DESC')->paginate(50);       
+        $tls_hs=TalentoHumano::orderBy('id', 'DESC')->paginate(10);       
         
         return view ('proyecto.tls_hs.index', compact('tls_hs'));
     }

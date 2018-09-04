@@ -14,57 +14,60 @@
             </ol>
         </section>
         <div class="panel panel-default">
-			<div class="panel-heading">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Item</th>
-      						<th scope="col">Tipo</th>
-      						<th scope="col">Costo</th>
-                            <th scope="colspan=3">Acciones</th>
-    					</tr>
-    				</thead>
-    				<tbody>
-    					@foreach ($infraestructuras as $infraestructura)
-    					<tr>
-    						<td>{{ $infraestructura->item}}</td>
-                            @switch($infraestructura->tipo)
-                                @case('nueva')
-                                    <td>Nueva</td>
-                                    @break
+            <div class="panel-heading">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+    						<tr>
+    							<th scope="col">Item</th>
+          						<th scope="col">Tipo</th>
+          						<th scope="col">Costo</th>
+                                <th scope="colspan=3">Acciones</th>
+        					</tr>
+    				    </thead>
+        				<tbody>
+        					@foreach ($infraestructuras as $infraestructura)
+        					<tr>
+        						<td>{{ $infraestructura->item}}</td>
+                                @switch($infraestructura->tipo)
+                                    @case('nueva')
+                                        <td>Nueva</td>
+                                        @break
 
-                                @case('readecuacion')
-                                    <td>Readecuación</td>
-                                    @break
-                                @case('read_ampl')
-                                    <td>Readecuación y Ampliación</td>
-                                    @break                                    
+                                    @case('readecuacion')
+                                        <td>Readecuación</td>
+                                        @break
+                                    @case('read_ampl')
+                                        <td>Readecuación y Ampliación</td>
+                                        @break                                    
 
-                                @default
-                                    <td>Sin tipo</td>
-                            @endswitch
-                            <td>{{  number_format($infraestructura->costo, 3)}}</td>
-    						<td width="10px">
-                                <a href="{{route('infraestructuras.show', $infraestructura->id)}}" class="btn btn-sm btn-default">Ver</a>
-                            </td>
-                            <td width="10px">
-                                <a href="{{route('infraestructuras.edit',$infraestructura->id)}}" class="btn btn-sm btn-default">Editar</a>                  
-                            </td>
-                            <td width="10px">
-                                {!! Form::open(['route'=>['infraestructuras.destroy', $infraestructura->id],
-                                'method'=>'DELETE']) !!}
-                                <button class="btn btn-sm btn-danger">Eliminar</button>
+                                    @default
+                                        <td>Sin tipo</td>
+                                @endswitch
+                                <td>{{  number_format($infraestructura->costo, 3)}}</td>
+        						<td width="10px">
+                                    <a href="{{route('infraestructuras.show', $infraestructura->id)}}" class="btn btn-sm btn-default">Ver</a>
+                                </td>
+                                <td width="10px">
+                                    <a href="{{route('infraestructuras.edit',$infraestructura->id)}}" class="btn btn-sm btn-default">Editar</a>
+                                </td>
+                                <td width="10px">
+                                    {!! Form::open(['route'=>['infraestructuras.destroy', $infraestructura->id],
+                                    'method'=>'DELETE']) !!}
+                                    <button class="btn btn-sm btn-danger">Eliminar</button>
 
-                                {!! Form::close() !!}                  
-                            </td>
-    					</tr>
-
-    				</tbody>
+                                    {!! Form::close() !!}                  
+                                </td>
+        					</tr>
+                        </tbody>
     			@endforeach
-    			</table>
-                
-			</div>
-		</div>
-	</div>
+        			</table>
+                    <div class="panel-footer" style="text-align: center;">
+                    {{$infraestructuras->render()}}
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
 </div>
 @endsection

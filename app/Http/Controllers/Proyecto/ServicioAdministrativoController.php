@@ -25,7 +25,7 @@ class ServicioAdministrativoController extends Controller
      */
     public function index()
     {
-        $serviciosadministrativos=AdministrativoServicio::orderBy('id', 'DESC')->paginate(50);       
+        $serviciosadministrativos=AdministrativoServicio::orderBy('id', 'DESC')->paginate(10);       
         
         return view ('proyecto.servs_adms.index', compact('serviciosadministrativos'));
     }

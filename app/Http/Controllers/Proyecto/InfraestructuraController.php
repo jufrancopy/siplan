@@ -24,7 +24,7 @@ class InfraestructuraController extends Controller
      */
     public function index()
     {
-        $infraestructuras=Infraestructura::orderBy('id', 'DESC')->paginate(50);       
+        $infraestructuras=Infraestructura::orderBy('id', 'DESC')->paginate(10);       
         
         return view ('proyecto.infraestructuras.index', compact('infraestructuras'));
     }

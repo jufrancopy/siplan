@@ -14,14 +14,15 @@
         </section>
     
         <div class="panel panel-default">
-			<div class="panel-heading">
-				<table class="table table-hover">
+         <div class="panel-heading">
+            <div class="table-responsive">
+               <table class="table table-bordered">
 					<thead>
 						<tr>
 							<th scope="col">Item</th>
       						<th scope="col">Tipo</th>
       						<th scope="col">Costo</th>
-                            <th scope="colspan=3">Acciones</th>
+                            <th colspan="3">Acciones</th>
     					</tr>
     				</thead>
     				<tbody>
@@ -53,12 +54,13 @@
                                 {!! Form::close() !!}                  
                             </td>
     					</tr>
-
-    				</tbody>
-    			@endforeach
-    			</table>
-                
-			</div>
+                    </tbody>
+    			     @endforeach
+                </table>
+                <div class="panel-footer" style="text-align: center;">
+                    {{$tls_hs->render()}}
+                </div>
+            </div>
 		</div>
 	</div>
 </div>

@@ -67,64 +67,74 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.iconheader-h:before {
-  content: "\e900";
-  color: #008000;
-}
-
-.iconheader-hr:before {
-  content: "\e904";
-  color: #0f0;
-}
-
-.iconheader-us:before {
-  content: "\e903";
-  color: #00f;
-}
-
 .iconheader-cp:before {
-  content: "\e902";
+  content: "\e903";
   color: #008080;
 }
-
+.iconheader-h:before {
+  content: "\e904";
+  color: #008000;
+}
+.iconheader-hr:before {
+  content: "\e905";
+  color: #0f0;
+}
 .iconheader-ps:before {
-  content: "\e903";
+  content: "\e906";
   color: #f0f;
 }
-
+.iconheader-us:before {
+  content: "\e907";
+  color: #00f;
+}
 .iconheader-cn:before {
   content: "\e903";
   color: #0ff;
 }
 
-.icon-h:before {
-  content: "\e900";
-  color: #008000;
-}
 
-.icon-hr:before {
-  content: "\e904";
-  color: #0f0;
-}
 
-.icon-us:before {
-  content: "\e903";
-  color: #00f;
-}
 
 .icon-cp:before {
-  content: "\e902";
+  content: "\e903";
   color: #008080;
 }
-.icon-ps:before {
-  content: "\e901";
-  color: #0ff;
+.icon-h:before {
+  content: "\e904";
+  color: #008000;
 }
-
+.icon-hr:before {
+  content: "\e905";
+  color: #0f0;
+}
+.icon-ps:before {
+  content: "\e906";
+  color: #f0f;
+}
+.icon-us:before {
+  content: "\e907";
+  color: #00f;
+}
 .icon-cn:before {
   content: "\e903";
   color: #0ff;
 }
+
+
+.icon-inms:before {
+  content: "\e900";
+  color: #666;
+}
+.icon-meds:before {
+  content: "\e901";
+  color: #00f;
+}
+.icon-reacts:before {
+  content: "\e902";
+  color: #f0f;
+}
+
+
 
 
 

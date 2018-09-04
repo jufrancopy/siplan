@@ -24,7 +24,7 @@ class EquipoTecnologicoController extends Controller
      */
     public function index()
     {
-        $equipostecnologicos=EquipoTecnologico::orderBy('id', 'DESC')->paginate(50);
+        $equipostecnologicos=EquipoTecnologico::orderBy('id', 'DESC')->paginate(10);
         return view ('proyecto.eqs_tecns.index', compact('equipostecnologicos'));
     }
 

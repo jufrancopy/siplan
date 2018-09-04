@@ -12,54 +12,56 @@
                 <a href="{{route('eqs_tecns.create')}}" class="btn btn-info btn-sm ml-auto pull-right">Crear</a>
             </ol>
         </section>
-    
         <div class="panel panel-default">
-			<div class="panel-heading">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Item</th>
-      						<th scope="col">Tipo</th>
-      						<th scope="col">Costo</th>
-                            <th scope="colspan=3">Acciones</th>
-    					</tr>
-    				</thead>
-    				<tbody>
-    					@foreach ($equipostecnologicos as $equipotecnologico)
-    					<tr>
-    						<td>{{ $equipotecnologico->item}}</td>
-    						   @switch($equipotecnologico->tipo)
-                                @case('informatico')
-                                    <td>Informático</td>
-                                    @break
-                                @case('biomedico')
-                                    <td>Biomédico</td>
-                                    @break
-                                @default
-                                    <td>Sin tipo</td>
-                            @endswitch
-                            <td>{{ number_format($equipotecnologico->costo, 3)}}</td> 
-    						<td width="10px">
-                                <a href="{{route('eqs_tecns.show', $equipotecnologico->id)}}" class="btn btn-sm btn-default">Ver</a>
-                            </td>
-                            <td width="10px">
-                                <a href="{{route('eqs_tecns.edit',$equipotecnologico->id)}}" class="btn btn-sm btn-default">Editar</a>                  
-                            </td>
-                            <td width="10px">
-                                {!! Form::open(['route'=>['eqs_tecns.destroy', $equipotecnologico->id],
-                                'method'=>'DELETE']) !!}
-                                <button class="btn btn-sm btn-danger">Eliminar</button>
+            <div class="panel-heading">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+    					<thead>
+    						<tr>
+    							<th scope="col">Item</th>
+          						<th scope="col">Tipo</th>
+          						<th scope="col">Costo</th>
+                                <th colspan="3">Acciones</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					@foreach ($equipostecnologicos as $equipotecnologico)
+        					<tr>
+        						<td>{{ $equipotecnologico->item}}</td>
+        						   @switch($equipotecnologico->tipo)
+                                    @case('informatico')
+                                        <td>Informático</td>
+                                        @break
+                                    @case('biomedico')
+                                        <td>Biomédico</td>
+                                        @break
+                                    @default
+                                        <td>Sin tipo</td>
+                                @endswitch
+                                <td>{{ number_format($equipotecnologico->costo, 3)}}</td> 
+        						<td width="10px">
+                                    <a href="{{route('eqs_tecns.show', $equipotecnologico->id)}}" class="btn btn-sm btn-default">Ver</a>
+                                </td>
+                                <td width="10px">
+                                    <a href="{{route('eqs_tecns.edit',$equipotecnologico->id)}}" class="btn btn-sm btn-default">Editar</a>                  
+                                </td>
+                                <td width="10px">
+                                    {!! Form::open(['route'=>['eqs_tecns.destroy', $equipotecnologico->id],
+                                    'method'=>'DELETE']) !!}
+                                    <button class="btn btn-sm btn-danger">Eliminar</button>
 
-                                {!! Form::close() !!}                  
-                            </td>
-    					</tr>
-
-    				</tbody>
+                                    {!! Form::close() !!}                  
+                                </td>
+        					</tr>
+                        </tbody>
     			@endforeach
-    			</table>
-                
-			</div>
-		</div>
-	</div>
+                    </table>
+                    <div class="panel-footer" style="text-align: center;">
+                    {{$equipostecnologicos->render()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

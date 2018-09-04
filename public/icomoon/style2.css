@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?hox5gq');
+  src:  url('fonts/icomoon.eot?hox5gq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hox5gq') format('truetype'),
+    url('fonts/icomoon.woff?hox5gq') format('woff'),
+    url('fonts/icomoon.svg?hox5gq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cp:before {
+  content: "\e903";
+  color: #008080;
+}
+.icon-h:before {
+  content: "\e904";
+  color: #008000;
+}
+.icon-hr:before {
+  content: "\e905";
+  color: #0f0;
+}
+.icon-ps:before {
+  content: "\e906";
+  color: #f0f;
+}
+.icon-us:before {
+  content: "\e907";
+  color: #00f;
+}
+.icon-inms:before {
+  content: "\e900";
+  color: #666;
+}
+.icon-meds:before {
+  content: "\e901";
+  color: #00f;
+}
+.icon-reacts:before {
+  content: "\e902";
+  color: #f0f;
+}

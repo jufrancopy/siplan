@@ -16,7 +16,7 @@ class MedicamentoInsumoController extends Controller
      */
     public function index()
     {
-      $med_inms=MedicamentoInsumo::orderBy('id', 'DESC')->paginate(50);       
+      $med_inms=MedicamentoInsumo::orderBy('id', 'DESC')->paginate(10);       
         
         return view ('proyecto.med_inms.index', compact('med_inms'));
     }
