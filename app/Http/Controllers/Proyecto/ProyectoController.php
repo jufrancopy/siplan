@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Proyecto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\MedicamentoInsumo;
-use App\ServicioAdministrativo;
+use App\AdministrativoServicio;
 use App\TalentoHumano;
 use App\Infraestructura;
 use App\EquipoTecnologico;
@@ -30,7 +30,12 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-      return view ('proyecto.proyectos.create');   
+        //$administrativo_servicios = Category::orderBy('name', 'ASC')->pluck('name', 'id');
+        $administrativo_servicios       = AdministrativoServicio::orderBy('item', 'ASC')->get();
+        $equipo_tecnologicos            = EquipoTecnologico::orderBy('item', 'ASC')->get();
+        $talento_humanos                = TalentoHumano::orderBy('item', 'ASC')->get();
+        $medicamento_insumos            = MedicamentoInsumo::orderBy('item', 'ASC')->get();
+        return view ('proyecto.proyectos.create', get_defined_vars());   
     }
 
     /**
@@ -41,7 +46,7 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

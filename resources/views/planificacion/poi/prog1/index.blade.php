@@ -7,7 +7,7 @@
 				Prog. 1 -  Gestión administrativa para generación de valor público
 			</div>
 				<div class="panel-body">
-					<a href="{{route('listado')}}">Asuncion</a>
+					<a href="{{route('listadoProg1')}}">Asuncion</a>
 				</div>
 		</div>
 	</div>

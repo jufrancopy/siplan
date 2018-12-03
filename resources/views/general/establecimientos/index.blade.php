@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
         <section class="content-header">
-            <h1>Establecimientos de Salud del IPS</h1>
+            <h1>Matriz de Protección Social</h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="{{route('establecimientos.index')}}">
@@ -23,9 +23,8 @@
                                 <th scope="col">Departamento</th>
                                 <th scope="col">Ciudad</th>
                                 <th scope="col">Nivel</th>
-                                <th scope="col">Tipo</th>
                                 <th scope="col">Cantidad</th>
-                                <th scope="col">Año</th>
+                                <th scope="col">Camas</th>
                                 <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
@@ -36,29 +35,28 @@
                                 <td>{{ $establecimiento->ciudad->nombre}}</td>
                                     @switch($establecimiento->nivel->nombre) 
                                       @case('Hospital')
-                                        <td><span class="icon-h"></span></td>
+                                        <td>Hospital</td>
                                           @break 
                                       @case('Hospital Regional')
-                                        <td><span class="icon-hr"></span></td>
+                                        <td>Hospital Regional</td>
                                           @break 
                                       @case('Unidad Sanitaria')
-                                        <td><span class="icon-us"></span></td>
+                                        <td>Unidad Sanitaria</td>
                                           @break 
                                       @case('Clinica Periferica')
-                                        <td><span class="icon-cp"></span></td>
+                                        <td>Clinica Periferica</td>
                                           @break 
                                       @case('Puesto Sanitario')
-                                        <td><span class="icon-ps"></span></td>
+                                        <td>Puesto Sanitario</td>
                                           @break 
                                       @case('Centro Especializado')
-                                        <td><span class="icon-cn"></span></td>
+                                        <td>Centro Especializado</td>
                                           @break 
                                       @default
                                         <td>Sin Nivel</td>
                                     @endswitch
-                                <td>{{ $establecimiento->tipo}}</td>
                                 <td>{{ $establecimiento->cantidad}}</td>
-                                <td>{{ $establecimiento->anho->anho}}</td>
+                                <td>{{ $establecimiento->camas}}</td>
                                 <td width="10px">
                                     <a href="{{route('establecimientos.show', $establecimiento->id)}}" class="btn btn-sm btn-default">Ver</a>
                                 </td>

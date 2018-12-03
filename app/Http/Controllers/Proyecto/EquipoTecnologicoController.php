@@ -48,7 +48,7 @@ class EquipoTecnologicoController extends Controller
     {
         $equipotecnologico=EquipoTecnologico::create($request->all());
 
-        return redirect()->route('eqs_tecns.edit', $equipotecnologico->id)
+        return redirect()->route('eqs_tecns.index', $equipotecnologico->id)
                         ->with ('info','Agreda con éxito');
     }
 
@@ -73,6 +73,7 @@ class EquipoTecnologicoController extends Controller
     public function edit($id)
     {
         $equipotecnologico=EquipoTecnologico::find($id);
+        
         return view('proyecto.eqs_tecns.edit', compact('equipotecnologico'));
     }
 
@@ -88,7 +89,7 @@ class EquipoTecnologicoController extends Controller
         $equipotecnologico=EquipoTecnologico::find($id);
         $equipotecnologico->fill($request->all())->save();
         
-        return redirect()->route('eqs_tecns.edit', $equipotecnologico->id)
+        return redirect()->route('eqs_tecns.index', $equipotecnologico->id)
                 ->with ('info','Actualizada con éxito');
     }
 

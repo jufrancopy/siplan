@@ -6,7 +6,7 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
   <div class="container">
-    <h2>Listado de Departamentos</h2>
+    <h2>Departamentos y sus capitales - Población</h2>
       <table id="example" class="display" style="width:100%">
          <thead>
             <tr>

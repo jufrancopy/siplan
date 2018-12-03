@@ -5,7 +5,7 @@
 		
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			Cargar Servicios	
+			Cargar Nuevo Establecimiento	
 			</div>
 			<div class="panel-body">
 				{!!	Form::open(['route'=>'establecimientos.store'])	!!}

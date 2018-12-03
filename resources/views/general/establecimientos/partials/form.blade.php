@@ -20,10 +20,19 @@
 
 
 <div class="form-group">
-	{{	Form::label('cantidad', 'Cantidad:')	}}
+	{{	Form::label('cantidad', 'Cantidad de Centros:')	}}
 	{{	Form::text('cantidad', null,['class'=>'form-control','id'=>'cantidad'])	}}
 </div>
 
+<div class="form-group">
+	{{	Form::label('camas', 'Cantidad de Camas:')	}}
+	{{	Form::text('camas', null,['class'=>'form-control','id'=>'camas'])	}}
+</div>
+
+<div class="form-group">
+	{{	Form::label('referencia', 'Según informe de:')	}}
+	{{	Form::text('referencia', null,['class'=>'form-control','id'=>'referencia'])	}}
+</div>
 
 <div class="form-group">
 	{{	Form::label('anho', 'Año:')	}}
@@ -37,3 +46,4 @@
 <!-- Aqui puede ir codido JavaScript personalizado -->
 @section('script')
 @endsection
+

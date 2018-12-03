@@ -50,7 +50,7 @@
 		    </thead>
 		    <tbody>
 		    	<tr>
-		    		<th></th>
+		    		<th>{{$nombreDpto[0]->nombre}}</th>
 		    		<th>
 		    			{{$nombreMes[0]->mes}} 
 					</th>

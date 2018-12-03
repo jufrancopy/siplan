@@ -14,7 +14,9 @@ class Establecimiento extends Model
 						 'dpto_id', 
 						 'ciudad_id',
 						 'cantidad',
-						 'nivel_id'	
+						 'camas'	,
+						 'nivel_id'	,
+						 'referencia'	,
 						];
 
 public function anho(){
@@ -30,7 +32,7 @@ public function departamento(){
  	}
 
 public function ciudad(){
- 	return $this->belongsTo(Ciudad::class, 'id'); 	 	
+ 	return $this->hasOne(Ciudad::class, 'id', 'ciudad_id'); 	 	
 	}
 
 public function nivel(){

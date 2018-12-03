@@ -12,9 +12,6 @@
       </h1>
      
     </section>
-   
-
-
     <!-- Main content -->
     <section class="content">
       <!-- Info boxes -->
@@ -76,7 +73,7 @@
        <div class="col-md-2 col-sm-6 col-xs-12">
           <div id=contenedorico>
               <p id="tituloico">Convenios</p>
-              <span class="iconheader-cn" ></span> 
+              <span class="iconheader-us" ></span> 
 
               <p id="bordecontador">{{$tc}}</p> 
             
@@ -119,21 +116,21 @@
                     <td>{{$establecimiento->ciudad->nombre}}</td>
                     @switch($establecimiento->nivel->nombre)
                                 @case('Hospital')
-                                    <td><span class="icon-h" ></span></td>
+                                    <td>Hospital</td>
                                     @break
 
                                 @case('Hospital Regional')
-                                    <td><span class="icon-hr" ></span></td>
+                                    <td>Hospital Regional</td>
                                     @break
 
                                 @case('Unidad Sanitaria')
-                                    <td><span class="icon-us" ></span></td>
+                                    <td>Unidad Sanitaria</td>
                                     @break                                    
                                  @case('Clinica Periferica')
-                                 <td><span class="icon-cp" ></span></td>
+                                 <td>Clinica Periferica</td>
                                     @break
                                  @case('Convenio')
-                                 <td><span class="icon-c" ></span></td>
+                                 <td>Convenio</td>
                                     @break   
 
                                 @default
@@ -172,7 +169,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Ver Todo</a>
+              <a href="{{route('establecimientos.index')}}" class="btn btn-sm btn-info btn-flat pull-left">Ver Todo</a>
               
             </div>
             <!-- /.box-footer -->
@@ -185,14 +182,33 @@
           <!-- Info Boxes Style 2 -->
           <div class="info-box bg-yellow">
             <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-              <b>Cumplimiento de Objetivos Institucionales</b>
+              <b>Clasificación por Areas Funcionales</b>
             <div class="info-box-content">
-              <span class="info-box-text">Objetivo 1</span>
-              <span class="info-box-number">4</span>
+              <script type="text/javascript">
+                          google.charts.load('current', {'packages':['corechart']});
+                          google.charts.setOnLoadCallback(drawChart);
+                    
+                          function drawChart() {
+                    
+                            var data = google.visualization.arrayToDataTable([
+                              ['id', 'Cursos'],
+                              @foreach ($areas as $area)
+                                ['{{$area->sector}}', {{$area->total}}],
+                              @endforeach
+                            ]);
+                    
+                            var options = {
+                              title: ''
+                            };
+                    
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    
+                            chart.draw(data, options);
+                          }
+                    </script>
 
-              <div class="progress">
-                <div class="progress-bar" style="width: 51%"></div>
-              </div>
+             <div class="panel-body " id="piechart";></div>
+            
              
             </div>
             <!-- /.info-box-content -->
@@ -202,10 +218,9 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+         
 
-
-          
-              </ul>
+         
             </div>
             <!-- /.box-body -->
             

@@ -18,8 +18,23 @@
 			Detalles del Talento Humano	
 			</div>
 			<div class="panel-body">
-				<p><strong>Item</strong></p>
-				<p><strong>Item</strong></p>
+				<p><strong>Item: </strong>
+					{{$tl_h->item}}</p>
+				<p><strong>Tipo: </strong>
+				 @switch($tl_h->tipo)
+                                    @case('permanente')
+                                        Permanente
+                                        @break
+
+                                    @case('contratado')
+                                        Contratado
+                                        @break
+                                    @default
+                                        Sin tipo
+                                @endswitch
+				</p>
+				<p><strong>Costo: </strong>
+					{{$tl_h->costo}}</p>
 			</div>
 		</div>
 	</div>

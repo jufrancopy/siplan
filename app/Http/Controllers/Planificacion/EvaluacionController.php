@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Planificacion;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Evaluacion;
+use App\Area;
+use DB;
 
 class EvaluacionController extends Controller
 {
@@ -14,7 +17,30 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        //
+        $evaluaciones=Evaluacion::orderBy('id', 'ASC')->paginate(10);
+        $capacitaciones=Evaluacion::where('tipo_evaluacion_id', '=', 1)->count();
+        $incorporaciones=Evaluacion::where('tipo_evaluacion_id', '=', 4)->count();
+        $incorporaciones=Evaluacion::where('tipo_evaluacion_id', '=', 4)->count();
+        $items = Evaluacion::groupBy('tipo_evaluacion_id')
+            ->selectRaw('count(*) as total, tipo_evaluacion_id')
+            ->get();
+
+          $capacitaciones_graf=Evaluacion::select('item', 'total', 'tipo_evaluacion_id', 'anho_id')
+            ->where('tipo_evaluacion_id', 1)
+            ->groupBy('item','total','tipo_evaluacion_id','anho_id')
+            ->orderBy('anho_id')
+            ->get();
+
+          
+         
+         //dd($capacitaciones_graf);  
+       
+        return view("planificacion.evaluaciones.index", get_defined_vars());
+    }
+
+    public function listar(){
+        $evaluaciones=Evaluacion::orderBy('id', 'ASC')->paginate(10);
+        return view("planificacion.evaluaciones.listar", get_defined_vars());
     }
 
     /**
@@ -24,7 +50,8 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view ('planificacion.evaluaciones.create');
     }
 
     /**

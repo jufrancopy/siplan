@@ -78,7 +78,7 @@ class TalentoHumanoController extends Controller
     public function show($id)
     {
         $tl_h=TalentoHumano::find($id);
-        return view('proyecto.tls_hs.show');
+        return view('proyecto.tls_hs.show', get_defined_vars());
     }
 
     /**
@@ -90,7 +90,7 @@ class TalentoHumanoController extends Controller
     public function edit($id)
     {
         $tl_h=TalentoHumano::find($id);
-        return view('proyecto.tls_hs.edit', compact('tl_h'));
+        return view('proyecto.tls_hs.edit', get_defined_vars());
     }
 
     /**
@@ -105,7 +105,7 @@ class TalentoHumanoController extends Controller
         $tl_h=TalentoHumano::find($id);
         $tl_h->fill($request->all())->save();
         
-        return redirect()->route('tls_hs.edit', $tl_h->id)
+        return redirect()->route('tls_hs.index', $tl_h->id)
                 ->with ('info','Actualizado con éxito');
     }
 

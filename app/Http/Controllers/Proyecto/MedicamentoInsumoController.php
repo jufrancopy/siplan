@@ -28,7 +28,9 @@ class MedicamentoInsumoController extends Controller
      */
     public function create()
     {
-       return view ('proyecto.med_inms.create');
+       $med_inm=MedicamentoInsumo::orderBy('id', 'ASC')->get();
+       
+       return view ('proyecto.med_inms.create',get_defined_vars());
     }
 
     /**
@@ -66,7 +68,9 @@ class MedicamentoInsumoController extends Controller
     public function edit($id)
     {
         $med_inm=MedicamentoInsumo::find($id);
-        return view('proyecto.med_inms.edit', compact('med_inm'));
+         //dd($med_inm); 
+
+        return view('proyecto.med_inms.edit', get_defined_vars());
     }
 
     /**

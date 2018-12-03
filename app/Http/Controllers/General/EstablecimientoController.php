@@ -5,6 +5,9 @@ namespace App\Http\Controllers\General;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\General\EstablecimientoStoreRequest;
+use App\Http\Requests\General\EstablecimientoUpdateRequest;
+
 use App\Establecimiento;
 use App\Nivel;
 use App\Anho;
@@ -50,11 +53,11 @@ class EstablecimientoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstablecimientoStoreRequest $request)
     {
 
         $establecimiento=Establecimiento::create($request->all());
-        return redirect()->route('establecimientos.edit', $establecimiento->id)
+        return redirect()->route('establecimientos.index', $establecimiento->id)
                         ->with ('info','Agreda con éxito');
     }
 
@@ -66,8 +69,8 @@ class EstablecimientoController extends Controller
      */
     public function show($id)
     {
-        $establecimiento=Establecimiento::find($id);
-        return view('general.establecimientos.show');
+        $establecimientos=Establecimiento::find($id);
+        return view('general.establecimientos.show', get_defined_vars());
     }
 
     /**
@@ -96,7 +99,7 @@ class EstablecimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EstablecimientoUpdateRequest $request, $id)
     {
         $establecimiento=Establecimiento::find($id);
         $establecimiento->fill($request->all())->save();

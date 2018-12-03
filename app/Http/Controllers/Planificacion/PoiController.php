@@ -12,6 +12,7 @@ use App\Prog3;
 use App\Prog4;
 use App\Mes;
 
+
 use App\Departamento;
 
 
@@ -43,6 +44,42 @@ class PoiController extends Controller
         return  view("planificacion.poi.prog2.index", compact('meses'));
    }
 
+   public function report1()
+   {      
+        
+        $dptos=Departamento::where('id','!=', 19)->get();
+        $meses=Mes::get();
+        $prog2s=Prog2::groupBy('rubro')
+              ->selectRaw('sum(monto) as sum, rubro')
+              ->get('sum','rubro');
+        $total=$prog2s->sum('sum');      
+              return  view("planificacion.poi.prog2.listReport1", get_defined_vars());
+   }
+
+   public function listadoReport1($idmes, $iddpto)
+   {  
+
+      $prog2s=Prog2::where('dpto_id','=',$iddpto)->where('mes_id','=',$idmes)->get();
+      $nombreDpto=Departamento::where('id','=',$iddpto)->get();
+      $nombreMes=Mes::where('id','=',$idmes)->get();
+      if(!$prog2s){
+         return "Algo salio mal";
+      } 
+      else
+         {
+            $total=$prog2s->sum('monto');
+            
+            return  view ("planificacion.poi.prog2.listado", compact('prog2s', 'total','dptos','nombreDpto','nombreMes'));
+          }
+    }
+
+   public function report2()
+   {      
+        
+        //Lista todos los meses que estan en la base de datos y al seleccionar envia por url el id del mes al metodo mes
+        $meses=Mes::orderBy('id', 'ASC')->get();
+        return  view("planificacion.poi.prog2.report1", compact('meses'));
+   } 
 
    public function dptos($idmes)
    {
@@ -130,4 +167,5 @@ class PoiController extends Controller
           return $pdf->stream('prog2s');
           }
         }
+
 

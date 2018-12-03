@@ -30,15 +30,15 @@
         						<td>{{ $med_inm->item}}</td>
                                 @switch($med_inm->tipo)
                                 @case('medicamento')
-                                    <td><span class="icon-meds" ></span></td>
+                                    <td>Medicamentos</td>
                                     @break
 
                                 @case('insumo')
-                                    <td><span class="icon-inms" ></span></td>
+                                    <td>Insumos</span></td>
                                     @break
 
                                 @case('reactivo')
-                                    <td><span class="icon-reacts" ></span></td>
+                                    <td>Reactivos</td>
                                     @break
                                 @default
                                  @endswitch

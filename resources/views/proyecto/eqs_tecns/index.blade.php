@@ -48,7 +48,7 @@
                                 <td width="10px">
                                     {!! Form::open(['route'=>['eqs_tecns.destroy', $equipotecnologico->id],
                                     'method'=>'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">Eliminar</button>
+                                    <button class="btn btn-sm btn-danger" onclick="">Eliminar</button>
 
                                     {!! Form::close() !!}                  
                                 </td>

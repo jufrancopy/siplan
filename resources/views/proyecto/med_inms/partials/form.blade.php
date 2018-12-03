@@ -10,8 +10,11 @@
 
 <div class="form-group">
 	{{	Form::label('tipo', 'Tipo')	}}
-	{{	Form::select('tipo', array('Medicamento' => 'medicamento', 'Insumo' => 'insumo'))	}}
+	{{	Form::select('tipo', array('medicamento' => 'Medicamento', 'insumo' => 'Insumo', 'reactivo' => 'Reactivo'), NULL, array('class' => 'form-control')) }}
 </div>
+
+
+
 
 <div class="form-group">
 	{{	Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary'])	}}

@@ -61,7 +61,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Infraestructura</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item"  href="#">Crear Proyectos</a></div>
+                            <a class="dropdown-item"  href="#">Módulos</a></div>
 
                     </div>
                   </li>

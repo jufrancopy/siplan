@@ -108,7 +108,7 @@ class ServicioAdministrativoController extends Controller
         $servicioadministrativo=AdministrativoServicio::find($id);
         $servicioadministrativo->fill($request->all())->save();
         
-        return redirect()->route('servs_adms.edit', $servicioadministrativo->id)
+        return redirect()->route('servs_adms.index', $servicioadministrativo->id)
                 ->with ('info','Actualizada con éxito');
     }
 

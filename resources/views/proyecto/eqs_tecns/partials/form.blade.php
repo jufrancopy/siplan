@@ -14,6 +14,12 @@
 	{{	Form::select('tipo', array('informatico' => 'Informático', 'biomedico' => 'Biomédico'), ['class'=>'form-control'])}}
 </div>
 
+
+<div class="form-group">
+    {{ Form::label('talento_humanos', 'Talentos Humanos:') }} 
+    {{	Form::select('tipo', array('informatico' => 'Informático', 'biomedico' => 'Biomédico'), ['class'=>'form-contro"js-example-responsive" style="width:100%'])}}
+</div>
+
 <div class="form-group">
 	{{	Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary'])	}}
 </div>

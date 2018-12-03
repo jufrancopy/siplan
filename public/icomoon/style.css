@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?mm4t06');
-  src:  url('fonts/icomoon.eot?mm4t06#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?mm4t06') format('truetype'),
-    url('fonts/icomoon.woff?mm4t06') format('woff'),
-    url('fonts/icomoon.svg?mm4t06#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?d4tl68');
+  src:  url('fonts/icomoon.eot?d4tl68#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?d4tl68') format('truetype'),
+    url('fonts/icomoon.woff?d4tl68') format('woff'),
+    url('fonts/icomoon.svg?d4tl68#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,15 +18,85 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 50px;;
-  color: #B11818;
-  border-radius: 90px;
-
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-cp:before {
+  content: "\e900";
+  color: #a02c2c;
+}
+.icon-h:before {
+  content: "\e901";
+  color: #008000;
+}
+.icon-hr:before {
+  content: "\e902";
+  color: #0f0;
+}
+.icon-ps:before {
+  content: "\e905";
+  color: #f0f;
+}
+.icon-us:before {
+  content: "\e90d";
+  color: #00f;
+}
+.icon-cn:before {
+  content: "\e90d";
+  color: #00f;
+}
+
+/*Iconos Proyectos*/
+.icon-inms:before {
+  content: "\e903";
+  color: #666;
+}
+.icon-meds:before {
+  content: "\e904";
+  color: #00f;
+}
+.icon-reacts:before {
+  content: "\e90c";
+  color: #f0f;
+}
+
+/*Iconos Planificacion*/
+.icon-desvinculacion:before {
+  content: "\e90e";
+}
+.icon-fiscalizacion:before {
+  content: "\e90f";
+}
+.icon-capacitacion:before {
+  content: "\e910";
+}
+.icon-certificado_deuda:before {
+  content: "\e911";
+}
+.icon-deuda:before {
+  content: "\e912";
+}
+.icon-equipos_informaticos:before {
+  content: "\e906";
+}
+.icon-evaluacion:before {
+  content: "\e907";
+}
+.icon-hospital_central:before {
+  content: "\e908";
+}
+.icon-jubilacion_extraodrinaria:before {
+  content: "\e909";
+}
+.icon-jubilacion_ordinaria:before {
+  content: "\e90a";
+}
+.icon-verificacion:before {
+  content: "\e90b";
+}
+
 
 #contenedorico{
    text-align:center;
@@ -68,75 +138,76 @@
 }
 
 .iconheader-cp:before {
-  content: "\e903";
-  color: #008080;
+  content: "\e900";
+  color: #a02c2c;
 }
 .iconheader-h:before {
-  content: "\e904";
+  content: "\e901";
   color: #008000;
 }
 .iconheader-hr:before {
-  content: "\e905";
+  content: "\e902";
   color: #0f0;
 }
 .iconheader-ps:before {
-  content: "\e906";
+  content: "\e905";
   color: #f0f;
 }
 .iconheader-us:before {
-  content: "\e907";
+  content: "\e90d";
   color: #00f;
 }
-.iconheader-cn:before {
+.iconheader-us:before {
+  content: "\e90d";
+  color: #00f  ;
+}
+
+/*Iconos Proyectos*/
+.iconheader-inms:before {
   content: "\e903";
-  color: #0ff;
-}
-
-
-
-
-.icon-cp:before {
-  content: "\e903";
-  color: #008080;
-}
-.icon-h:before {
-  content: "\e904";
-  color: #008000;
-}
-.icon-hr:before {
-  content: "\e905";
-  color: #0f0;
-}
-.icon-ps:before {
-  content: "\e906";
-  color: #f0f;
-}
-.icon-us:before {
-  content: "\e907";
-  color: #00f;
-}
-.icon-cn:before {
-  content: "\e903";
-  color: #0ff;
-}
-
-
-.icon-inms:before {
-  content: "\e900";
   color: #666;
 }
-.icon-meds:before {
-  content: "\e901";
+.iconheader-meds:before {
+  content: "\e904";
   color: #00f;
 }
-.icon-reacts:before {
-  content: "\e902";
+.iconheader-reacts:before {
+  content: "\e90c";
   color: #f0f;
 }
 
-
-
-
-
-
+/*Iconos Planificacion*/
+.iconheader-desvinculacion:before {
+  content: "\e90e";
+}
+.iconheader-fiscalizacion:before {
+  content: "\e90f";
+}
+.iconheader-capacitacion:before {
+  content: "\e910";
+}
+.iconheader-certificado_deuda:before {
+  content: "\e911";
+}
+.iconheader-deuda:before {
+  content: "\e912";
+}
+.iconheader-equipos_informaticos:before {
+  content: "\e906";
+}
+.iconheader-evaluacion:before {
+  content: "\e907";
+}
+.iconheader-hospital_central:before {
+  content: "\e908";
+}
+.iconheader-jubilacion_extraodrinaria:before {
+  content: "\e909";
+}
+.iconheader-jubilacion_ordinaria:before {
+  content: "\e90a";
+}
+.iconheader-verificacion:before {
+  content: "\e90b";
+}
 
