@@ -4,22 +4,27 @@
 </div>
 
 <div class="form-group">
-	{{	Form::label('costo', 'Costo')	}}
-	{{	Form::text('costo', null, ['class'=>'form-control', 'id'=> 'costo'])	}}
+	{{	Form::label('tipo_evaluacion_id', 'Seleccione una Carrera:')	}}
+	{!! Form::select('tipo_evaluacion_id', $tipoevaluaciones ,null,['placeholder'=>'Elija una carrera','class'=>'js-example-responsive', 'style'=>'width:100%'])!!}
 </div>
 
 <div class="form-group">
-	{{	Form::label('tipo', 'Tipo')	}}
-	{{	Form::select('tipo', array('informatico' => 'informatico', 'biomedico' => 'biomedico','class'=>'form-control'))	}}
+	{{	Form::label('beneficiado', 'Beneficiado')	}}
+	{{	Form::select('beneficiado', array('docentes' => 'docentes', 'funcionarios' => 'funcionarios','institucion' => 'institucion','class'=>'form-control'))	}}
 </div>
 
 <div class="form-group">
-	{{	Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary'])	}}
+	{{	Form::label('beneficiado', 'Beneficiado')	}}
+	{{	Form::select('beneficiado', array('informatico' => 'informatico', 'biomedico' => 'biomedico','class'=>'form-control'))	}}
 </div>
 
 <div class="form-group">
 	{{	Form::label('tipo', 'Tipo')	}}
 	{{	Form::select('tipo', array('nueva' => 'Nueva', 'readecuacion' => 'Readeacuación', 'read_ampl' => 'Readecuación y Ampliación'))	}}
+</div>
+
+<div class="form-group">
+	{{	Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary'])	}}
 </div>
 <!-- Aqui puede ir codido JavaScript personalizado -->
 @section('script')

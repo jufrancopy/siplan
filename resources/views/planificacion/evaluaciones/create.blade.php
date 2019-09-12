@@ -5,7 +5,7 @@
 		
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			Cargar Servicios	
+			Cargar Reportes de Dependencias
 			</div>
 			<div class="panel-body">
 				{!!	Form::open(['route'=>'reportes.store'])	!!}

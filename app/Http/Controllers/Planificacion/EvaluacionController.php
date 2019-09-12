@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Evaluacion;
 use App\Area;
+use App\TipoEvaluacion;
 use DB;
 
 class EvaluacionController extends Controller
@@ -51,8 +52,15 @@ class EvaluacionController extends Controller
     public function create()
     {
         
-        return view ('planificacion.evaluaciones.create');
+        $tipoevaluaciones=TipoEvaluacion::orderBy('nombre', 'ASC')->pluck('nombre','id');
+       // $cursos=Curso::orderBy('nombre', 'ASC')->pluck('nombre','id');
+        //$materias=Materia::orderBy('id','DESC')->paginate();
+        //$ciclos=Ciclo::orderBy('id','ASC')->pluck('nombre','id');
+        
+       return view ('planificacion.evaluaciones.create', get_defined_vars());
     }
+
+  
 
     /**
      * Store a newly created resource in storage.

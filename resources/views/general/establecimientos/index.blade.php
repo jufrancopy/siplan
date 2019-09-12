@@ -33,28 +33,7 @@
                             <tr>
                                 <td>{{ $establecimiento->departamento->nombre}}</td>
                                 <td>{{ $establecimiento->ciudad->nombre}}</td>
-                                    @switch($establecimiento->nivel->nombre) 
-                                      @case('Hospital')
-                                        <td>Hospital</td>
-                                          @break 
-                                      @case('Hospital Regional')
-                                        <td>Hospital Regional</td>
-                                          @break 
-                                      @case('Unidad Sanitaria')
-                                        <td>Unidad Sanitaria</td>
-                                          @break 
-                                      @case('Clinica Periferica')
-                                        <td>Clinica Periferica</td>
-                                          @break 
-                                      @case('Puesto Sanitario')
-                                        <td>Puesto Sanitario</td>
-                                          @break 
-                                      @case('Centro Especializado')
-                                        <td>Centro Especializado</td>
-                                          @break 
-                                      @default
-                                        <td>Sin Nivel</td>
-                                    @endswitch
+                                <td>{{ $establecimiento->nivel->nombre}}</td>
                                 <td>{{ $establecimiento->cantidad}}</td>
                                 <td>{{ $establecimiento->camas}}</td>
                                 <td width="10px">

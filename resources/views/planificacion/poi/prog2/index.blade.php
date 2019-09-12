@@ -9,8 +9,9 @@
 				<div class="panel-body">
 					
 				<ul>
-					<li><a href="{{route('report1')}}">Rubros Generales por Mes</a></br></li>
-					<li><a href="{{route('report2')}}">Generales por Rubros</a></br></li>
+					<li><a href="{{route('report1')}}">Todos los rubros por año y por deparatamentos</a></br></li>
+					<li><a href="{{route('report2')}}">Por departamentos, mes y rubros</a></br></li>
+					<li><a href="{{route('report2')}}">Filtrado por Rubros y Departamentos</a></br></li>
 				</ul>
 					
 				</div>
